@@ -12,9 +12,6 @@ angular.module('chatroom').service('messageService', function($http){
   	});
   }
 
-
-
-
   //On the line below create the postMessage method. This method will add data to the backend server.
   //The url for the request needs to be 'https://practiceapi.devmounta.in/api/chats'
   //Because we're making a POST request, need a data object with a message property IE data: {message: "Hello World"}
@@ -29,6 +26,17 @@ angular.module('chatroom').service('messageService', function($http){
   			message: message,
   		}
   	});
+  }
+
+
+  this.deleteMessage = function(id){
+    return $http({
+      method: 'DELETE',
+      url: 'https://practiceapi.devmounta.in/api/chats',
+      params: {
+        message: 'test'
+      }
+    })
   }
 
 

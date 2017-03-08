@@ -19,9 +19,12 @@ angular.module('chatroom').controller('mainCtrl', function($scope, messageServic
   //then post it to the backend.
 
   $scope.postMessage = function(message){
-    messageService.postMessage(message);
+    messageService.postMessage(message).then(()=>$scope.getMessages());
   };
 
+  $scope.deleteMessage = function(){
+    messageService.deleteMessage();
+  };
 
   //uncomment this code when your getMessages function is finished
   //This goes and gets new data every second, which mimicking a chat room experience.
