@@ -1,0 +1,30 @@
+* {
+	margin: 0;
+}
+
+div[class*="col"] {
+	width: 33.333%;
+	height: 100vh;
+	float: left;
+}
+
+.col-1 {
+	background-color: #4A90E2;
+}
+
+.col-2 {
+	background-color: #50E3C2;
+}
+
+.col-3 {
+	background-color: #B8E986;
+	position: relative;
+}
+
+.bottom {
+	background-color: #D0021B;
+	height: 20vh;
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}

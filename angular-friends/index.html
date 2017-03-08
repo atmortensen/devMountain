@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+  <title>Angular Friends</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1>The <strong>facebook</strong> Friend Machine</h1>
+
+  <div class="friends">
+    <form class="form-inline searchForm" role="form">
+      <div class="form-group">
+        <input type="text" ng-model="friendFilter.name" class="form-control" placeholder="Search Name">
+        <input type="text" ng-model="friendFilter.location.state" class="form-control" placeholder="Search State">
+
+        <select ng-model="sortBy" class="input-medium">
+          <option value="">Sort By</option>
+          <option value="name">Name</option>
+          <option value="friend_count">#Friends</option>
+          <option value="location.city">City</option>
+          <option value="location.state">State</option>
+          <option value="location.country">Country</option>
+        </select>
+
+        <select ng-model="sortUpDown" class="input-medium">
+          <option value="true">Descending</option>
+          <option value="">Ascending</option>
+        </select>
+      </div>
+    </form>
+
+    <ul ng-controller="mainController">
+      <li class='friend' ng-repeat="friend in friends | filter : friendFilter | orderBy : sortBy : sortUpDown">
+        <img class="profile-pic" ng-src="{{friend.pic_square}}">
+        <h3>{{ friend.name }}</h3>
+        <div class="location">
+          Location: {{ friend.location.city }}, {{ friend.location.state }}, {{ friend.location.country }}
+        </div>
+        <div class="status">
+          Status: {{ friend.status }}
+        </div>
+        <div class="num-friends">
+          Friends: {{ friend.friend_count | number }}
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- your scripts here -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+</body>
+</html>
