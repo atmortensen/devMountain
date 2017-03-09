@@ -5,10 +5,7 @@ angular.module('chatroom').controller('mainCtrl', function($scope, messageServic
 
   $scope.getMessages = function(){
     messageService.getMessages().then(function(response){
-      $scope.messages = response.data;
-      for(var i=0; i<$scope.messages.length; i++){
-        $scope.messages[i].timeAgo = jQuery.timeago($scope.messages[i].createdAt);
-      }
+      $scope.messages = response;
     });
   };
 
