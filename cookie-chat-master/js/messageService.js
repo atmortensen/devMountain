@@ -40,10 +40,7 @@ angular.module('chatroom').service('messageService', function($http, $q){
   this.deleteMessage = function(id){
     return $http({
       method: 'DELETE',
-      url: 'https://practiceapi.devmounta.in/api/chats',
-      params: {
-        message: 'test'
-      }
+      url: 'https://practiceapi.devmounta.in/api/chats'
     })
   }
 
