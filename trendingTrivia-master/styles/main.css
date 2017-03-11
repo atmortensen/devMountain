@@ -228,3 +228,10 @@ input[type="range"] {
 .red {
   background: rgb(218, 45, 123);
 }
+.option {
+  cursor: pointer;
+  padding: 10px;
+}
+.choosen {
+  background: rgba(0, 0, 0, 0.3);
+}
