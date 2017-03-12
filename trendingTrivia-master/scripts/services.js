@@ -1,8 +1,9 @@
-// SERVICES
+// SERVICE
 triviaApp.service('services', ['$http', '$q', function($http, $q){
-	
+	var self = this;
+
 	// GET QUESTIONS
-	this.getQuestions = function(difficulty, animal, pages){
+	this.getQuestions = function(difficulty, animal, page){
 		var deferred = $q.defer();
 		if(difficulty){var url = 'https://practiceapi.devmountain.com/api/trivia/questions/difficulty/' + difficulty;} 
 		else{var url = 'https://practiceapi.devmountain.com/api/trivia/questions/';}
@@ -11,7 +12,7 @@ triviaApp.service('services', ['$http', '$q', function($http, $q){
 			url: url,
 			params: {
 				animal: animal || null,
-				page: pages || null
+				page: page || null
 			}
 		}).then(function(response){
 			var questions = response.data;
@@ -24,7 +25,7 @@ triviaApp.service('services', ['$http', '$q', function($http, $q){
 					questions[i].difficultyLabel='Easy'
 				} 
 			}
-			deferred.resolve(questions)
+			deferred.resolve(questions);
 		});
 		return deferred.promise;
 	};
@@ -42,5 +43,21 @@ triviaApp.service('services', ['$http', '$q', function($http, $q){
 	this.difficultySelector = function(difficulty){
 		return difficulty;
 	}
+
+	// CHECK PAGE 
+	this.checkPage = function(difficulty, animal, page){
+		var deferred = $q.defer();
+		if(page<0){
+			deferred.resolve(false);
+			return deferred.promise;
+		}
+		self.getQuestions(difficulty, animal, page).then(function(response){
+			if(!response[0]){var isTrue = false;}
+			else{var isTrue = true;}
+			deferred.resolve(isTrue);
+		});
+		return deferred.promise;
+	};
+
 
 }]);

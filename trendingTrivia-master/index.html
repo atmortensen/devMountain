@@ -13,18 +13,18 @@
   <header>
     <div></div>
     <h1>Trivia Trends</h1>
-    <button><span>+</span> Add Question</button>
+    <button ng-click="modalShow=true"><span>+</span> Add Question</button>
   </header>
   <article>
-    <nav ng-click="animalSearch = ''">
-      <a ng-click="getQuestions(''); searchShow=false;">All Questions</a>
-      <a ng-click="getQuestions('1'); searchShow=false;">Easy</a>
-      <a ng-click="getQuestions('2'); searchShow=false;">Medium</a>
-      <a ng-click="getQuestions('3'); searchShow=false">Hard</a>
+    <nav ng-click="animalSearch=''">
+      <a ng-click="checkDifficulty()" ng-class="{difficulty: !difficulty}">All Questions</a>
+      <a ng-click="checkDifficulty(1)" ng-class="{difficulty: difficulty===1}">Easy</a>
+      <a ng-click="checkDifficulty(2)" ng-class="{difficulty: difficulty===2}">Medium</a>
+      <a ng-click="checkDifficulty(3)" ng-class="{difficulty: difficulty===3}">Hard</a>
       <a ng-click="searchShow ? searchShow=false : searchShow=true">Search by Animal</a>
     </nav>
     <div ng-show="searchShow" class="search">
-      <input type="text" ng-model="animalSearch" ng-change="getQuestions('', animalSearch, page)" placeholder="Animal to search by">
+      <input type="text" ng-model="animalSearch" ng-change="difficulty=''; getQuestions(difficulty, animalSearch, page)" placeholder="Animal to search by">
     </div>
 
     <!-- Questions go here -->
@@ -32,8 +32,8 @@
 
       <h3>{{ question.question }}</h3>
       <div ng-class="{green: question.difficulty===1, yellow: question.difficulty===2, red: question.difficulty===3}">{{ question.difficultyLabel }}</div>
-      <div class="gear" >
-        <img src="styles/assets/gear.svg" alt="">
+      <div class="gear" ng-click="$parent.modalShow=true">
+        <img src="styles/assets/gear.svg" ng-click="modalShow=true">
       </div>
       <ul>
         <li ng-repeat="option in question.options">
@@ -43,11 +43,57 @@
 
       </div>
       <div>
-      <h3 class="change-page left">&lt; Prev Page</h3>
-      <h3 class="change-page right">Next Page &gt;</h3>
+      <h3 class="change-page left" ng-show="previousShow" ng-click="page=page-1; getQuestions(difficulty, animalSearch, page)">&lt; Prev Page</h3>
+      <h3 class="change-page right" ng-show="nextShow" ng-click="page=page+1; getQuestions(difficulty, animalSearch, page)">Next Page &gt;</h3>
 
       </div>
   </article>
+
+  <div class="modal" ng-show="modalShow">
+     <form>
+       <h4 class="close" ng-click="modalShow=false">X</h4>
+       <span>Question</span><input type="text" ng-model="newQ.question">
+       <span>Animal it's about</span><input type="text" ng-model="newQ.animal">
+       <span>Difficulty</span>
+       <div class="range">
+         <input type="range" min="1" max="3" ng-model="newQ.difficulty">
+
+         <h5>{{newQ.difficulty}}</h5>
+       </div>
+       <h4>Options</h4>
+       <div>
+         <input type="radio" ng-model="newQ.correct_answer" value="1">
+         <input type="text" ng-model="newQ.options[1]">
+       </div>
+       <div>
+         <input type="radio" ng-model="newQ.correct_answer" value="2">
+         <input type="text" ng-model="newQ.options[2]">
+       </div>
+       <div>
+         <input type="radio" ng-model="newQ.correct_answer" value="3">
+         <input type="text" ng-model="newQ.options[3]">
+       </div>
+       <div>
+         <input type="radio" ng-model="newQ.correct_answer" value="4">
+       <input type="text" ng-model="newQ.options[4]">
+       </div>
+
+       <!--Add question buttons-->
+       <div class="buttons">
+         <button class="green">Save Question</button>
+         <button>Cancel</button>
+       </div>
+
+       <!--Edit & Delete question buttons-->
+       <div class="buttons">
+         <button class="red">Delete Question</button>
+         <button class="green">Save Changes</button>
+         <button>Cancel</button>
+       </div>
+
+     </form>
+   </div>
+
 
   
 
