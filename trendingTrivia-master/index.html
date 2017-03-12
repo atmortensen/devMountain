@@ -13,7 +13,7 @@
   <header>
     <div></div>
     <h1>Trivia Trends</h1>
-    <button ng-click="modalShow=true"><span>+</span> Add Question</button>
+    <button ng-click="modalShow=true; newShow=true; editShow=false;"><span>+</span> Add Question</button>
   </header>
   <article>
     <nav ng-click="animalSearch=''">
@@ -28,11 +28,11 @@
     </div>
 
     <!-- Questions go here -->
-      <div class="question-wrapper" ng-repeat="question in questions | filter:difficulty:difficulty | filter:search:animal" ng-class="{green: $index===parentIndex && isCorrect, red: $index===parentIndex && !isCorrect}">
+      <div class="question-wrapper" ng-repeat="question in questions" ng-class="{green: $index===parentIndex && isCorrect, red: $index===parentIndex && !isCorrect}">
 
       <h3>{{ question.question }}</h3>
       <div ng-class="{green: question.difficulty===1, yellow: question.difficulty===2, red: question.difficulty===3}">{{ question.difficultyLabel }}</div>
-      <div class="gear" ng-click="$parent.modalShow=true">
+      <div class="gear" ng-click="$parent.modalShow=true; $parent.editShow=true; $parent.newShow=false; $parent.newQ=question;">
         <img src="styles/assets/gear.svg" ng-click="modalShow=true">
       </div>
       <ul>
@@ -51,7 +51,7 @@
 
   <div class="modal" ng-show="modalShow">
      <form>
-       <h4 class="close" ng-click="modalShow=false">X</h4>
+       <h4 class="close" ng-click="modalShow=false; newQ=null;">X</h4>
        <span>Question</span><input type="text" ng-model="newQ.question">
        <span>Animal it's about</span><input type="text" ng-model="newQ.animal">
        <span>Difficulty</span>
@@ -62,43 +62,37 @@
        </div>
        <h4>Options</h4>
        <div>
-         <input type="radio" ng-model="newQ.correct_answer" value="1">
+         <input type="radio" ng-checked="newQ.correct_answer==1" ng-model="newQ.correct_answer" value="1">
          <input type="text" ng-model="newQ.options[1]">
        </div>
        <div>
-         <input type="radio" ng-model="newQ.correct_answer" value="2">
+         <input type="radio" ng-checked="newQ.correct_answer==2" ng-model="newQ.correct_answer" value="2">
          <input type="text" ng-model="newQ.options[2]">
        </div>
        <div>
-         <input type="radio" ng-model="newQ.correct_answer" value="3">
+         <input type="radio" ng-checked="newQ.correct_answer==3" ng-model="newQ.correct_answer" value="3">
          <input type="text" ng-model="newQ.options[3]">
        </div>
        <div>
-         <input type="radio" ng-model="newQ.correct_answer" value="4">
+         <input type="radio" ng-checked="newQ.correct_answer==4" ng-model="newQ.correct_answer" value="4">
        <input type="text" ng-model="newQ.options[4]">
        </div>
 
        <!--Add question buttons-->
-       <div class="buttons">
-         <button class="green">Save Question</button>
-         <button>Cancel</button>
+       <div class="buttons" ng-show="newShow">
+         <button class="green" ng-click="newQuestion(newQ)">Save Question</button>
+         <button ng-click="modalShow=false; newQ=null;">Cancel</button>
        </div>
 
        <!--Edit & Delete question buttons-->
-       <div class="buttons">
-         <button class="red">Delete Question</button>
-         <button class="green">Save Changes</button>
-         <button>Cancel</button>
+       <div class="buttons" ng-show="editShow">
+         <button class="red" ng-click="deleteQuestion(newQ._id)">Delete Question</button>
+         <button class="green" ng-click="editQuestion(newQ)">Save Changes</button>
+         <button ng-click="modalShow=false; newQ=null;">Cancel</button>
        </div>
 
      </form>
    </div>
-
-
-  
-
-
-
 
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js" charset="utf-8"></script>

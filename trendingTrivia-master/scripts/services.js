@@ -42,7 +42,7 @@ triviaApp.service('services', ['$http', '$q', function($http, $q){
 	// DIFFICULTY SELECTOR
 	this.difficultySelector = function(difficulty){
 		return difficulty;
-	}
+	};
 
 	// CHECK PAGE 
 	this.checkPage = function(difficulty, animal, page){
@@ -57,6 +57,34 @@ triviaApp.service('services', ['$http', '$q', function($http, $q){
 			deferred.resolve(isTrue);
 		});
 		return deferred.promise;
+	};
+
+	// NEW QUESTION 
+	this.newQuestion = function(newQ){
+		return $http({
+			method: 'POST',
+			url: 'https://practiceapi.devmountain.com/api/trivia/questions',
+			data: newQ
+		});
+	};
+
+	// DELETE QUESTION 
+	this.deleteQuestion = function(question){
+		if(question){
+			return $http({
+				method: 'DELETE',
+				url: 'https://practiceapi.devmountain.com/api/trivia/questions/' + question,
+			});
+		}
+	};
+
+	// EDIT QUESTION
+	this.editQuestion = function(question){
+		return $http({
+			method: 'PUT',
+			url: 'https://practiceapi.devmountain.com/api/trivia/questions/'+question._id,
+			data: question
+		});
 	};
 
 

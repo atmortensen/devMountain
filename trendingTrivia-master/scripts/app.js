@@ -46,5 +46,31 @@ triviaApp.controller('mainController', ['$scope', 'services', function($scope, s
 		$scope.getQuestions($scope.difficulty, $scope.animalSearch, $scope.page); 
 	};
 
+	// NEW QUESTION 
+	$scope.newQuestion = function(newQ){
+		services.newQuestion(newQ).then(function(){
+			$scope.modalShow=false; 
+			$scope.newQ=null;
+			$scope.getQuestions();
+		});
+	}
+
+	// NEW QUESTION 
+	$scope.deleteQuestion = function(question){
+		services.deleteQuestion(question).then(function(){
+			$scope.modalShow=false; 
+			$scope.newQ=null;
+			$scope.getQuestions();
+		});
+	};
+
+	// EDIT QUESTION
+	$scope.editQuestion = function(question){
+		services.editQuestion(question).then(function(){
+			$scope.modalShow=false; 
+			$scope.newQ=null;
+			$scope.getQuestions();
+		});
+	}
 
 }]);
