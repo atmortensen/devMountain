@@ -21,6 +21,7 @@
 
 .about-inner-intro {
     padding-top: 25px;
+    line-height: 200%;
 }
 
 .about-inner-intro h1 {
@@ -28,6 +29,7 @@
     font-size: 3rem;
     color: #000;
     margin-bottom: 30px;
+    line-height: 125%;
 }
 
 .about-inner-intro p {
