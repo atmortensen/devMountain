@@ -1,0 +1,293 @@
+* {
+	margin: 0;
+	box-sizing: border-box;
+	color: #6A787C;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing: 1px;
+	line-height: 150%;
+	font-weight: 300;
+
+}
+
+.cap {
+	text-transform: uppercase;
+}
+
+p {
+	max-width: 600px;
+	margin: auto;
+}
+
+nav {
+	position: fixed;
+	width: 100%;
+	background-color: #FFF;
+	z-index: 100;
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.35);
+	transition: all .5s;
+}
+
+nav .flex {
+	padding: 20px;
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	align-items: center;
+	min-height: 70px;
+}
+
+nav img {
+	height: 30px;
+}
+
+nav .fa {
+	font-size: 22px;
+}
+
+nav ul {
+	list-style: none;
+	width: 100%;
+	flex-shrink: 0;
+	margin: 0;
+	padding: 25px;
+	font-size: 22px;
+	text-transform: uppercase;
+	display: none;
+}
+
+nav li {
+	line-height: 175%;
+	letter-spacing: 3px;
+}
+
+.topCover {
+	background-image: url(images/background.jpg);
+	background-size: cover;
+	background-position: top center;
+	min-height: 60vh;
+	width: 100%;
+	position: relative;
+	padding: 15vh 10px;
+	position: relative;
+	top: 70px;
+	margin-bottom: 70px;
+}
+
+.topCover p, .topCover h1, .topCover h2 {
+	color: white;
+	text-align: center;
+	line-height: 110%;
+}
+
+.topCover h1 {
+	font-size: 70px;
+	font-weight: 300;
+	letter-spacing: 1px;
+}
+
+.topCover h2 {
+	padding-top: 30px;
+	letter-spacing: 1px; 
+}
+
+.topCover .sub {
+ 	max-width: 380px;
+ 	padding: 10px;
+	margin: auto;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.sub .bar {
+	width: 15%;
+	height: 6px;
+	background-color: white;
+	margin-top: 5px;
+}
+
+.sub p {
+	font-size: 20px;
+	width: 70%;
+	position: relative;
+	padding: 0 5px;
+}
+
+.green {
+	color: #BCD239;
+}
+
+.orange {
+	color: #FF803A;
+}
+
+.topCover button {
+	width: 100%;
+	display: block;
+	max-width: 380px;
+	margin: 20px auto;
+	color: white;
+	height: 40px;
+	font-size: 18px;
+	letter-spacing: 2px;
+	border-radius: 20px;
+	border: none;
+	background-color: #BCD239;
+	font-weight: 400;
+}
+
+.topCover button:active, button:focus {
+	outline: none;
+}
+
+.info {
+	padding: 35px;
+	font-weight: 300;
+	text-align: center;
+	background-color: #F0F0F0; 
+	font-size: 24px;
+	line-height: 36px;
+}
+
+.info img {
+	margin: 20px 0;
+}
+
+.info .cap {
+	font-size: 36px;
+}
+
+.info .cap .green {
+	font-weight: 400;
+}
+
+.icons {
+	text-align: center;
+	padding: 20px;
+}
+
+.icons a {
+	display: block;
+	text-decoration: none;
+	padding: 15px;
+}
+
+.icon {
+	padding: 25px 0;
+}
+
+.help {
+	padding: 25px;
+	background-color: #F0F0F0;
+	text-align: center;
+}
+
+.help h3 {
+	font-size: 24px;
+	font-weight: 300;
+	line-height: 145%;
+	color: #40666D;
+	max-width: 600px;
+	margin: auto;
+}
+
+.help p {
+	margin-top: 20px;
+	font-size: 20px;
+}
+
+.help h2 {
+	font-weight: 300;
+	font-size: 50px;
+	line-height: 115%;
+	margin-bottom: 20px;
+}
+
+.help .green {
+	font-weight: 400;
+}
+
+.help .card {
+	max-width: 600px;
+	background-color: #FFF;
+	margin: 25px auto;
+	padding: 35px;
+}
+
+button {
+	width: 100%;
+	display: block;
+	max-width: 600px;
+	margin: 20px auto;
+	color: white;
+	height: 40px;
+	font-size: 18px;
+	letter-spacing: 2px;
+	border-radius: 20px;
+	border: none;
+	background-color: #BCD239;
+	font-weight: 400;
+}
+
+.brands img {
+	width: 100%;
+	display: block;
+}
+
+.brands h1 {
+	font-size: 35px;
+	text-align: center;
+	padding: 30px;
+}
+
+.contact {
+	padding: 15px;
+	background-color: #40666D;
+}
+
+.contact p {
+	font-size: 40px;
+	color: white;
+	font-weight: 400;
+	line-height: 120%;
+	padding-top: 65px;
+	max-width: none;
+}
+
+.contact .dash {
+	width: 50px;
+	height: 5px;
+	background-color: #BCD239;
+	margin: 25px 0 65px 0;
+}
+
+.footer {
+	font-size: 14px;
+	font-weight: 300;
+	text-align: center;
+	padding: 25px;
+}
+
+button.chat {
+	font-size: 16px;
+	font-weight: 300;
+	width: auto;
+	height: auto;
+	position: fixed;
+	bottom: -10px;
+	right: 10px;
+	padding: 10px 15px;
+	border-radius: 5px;
+	box-shadow: -1px -1px 5px 0px rgba(0,0,0,0.3);
+}
+
+button.chat i {
+	color: white;
+}
+
+.addresses {
+	display: none;
+}
+
+.brands div[class*="col"] .hover {
+	display: none;
+}

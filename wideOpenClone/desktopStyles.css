@@ -1,0 +1,197 @@
+.container {
+	width: 1000px;
+	margin: auto;
+}
+
+@media screen and (max-width: 1000px) {
+	.container {
+		width: 98%;
+	}
+}
+
+div[class*="col"]{
+	padding: 15px;
+}
+
+p {
+	max-width: 1000px;
+	margin: auto;
+}
+
+nav {
+	transition: all .5s;
+}
+
+nav.navTop {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+nav.navTop li {
+	color: white;
+}
+
+nav i.fa {
+	display: none;
+}
+
+nav .flex {
+	height: 80px;
+}
+
+nav img {
+	height: 40px;
+}
+
+nav ul {
+	display: flex;
+	padding: 0;
+	width: auto;
+}
+
+nav ul li {
+	font-size: 18px;
+	padding-left: 15px;
+}
+
+.topCover {
+	top: 0;
+	margin-bottom: 0;
+}
+
+.topCover .sub {
+	max-width: 550px;
+}
+
+.topCover h2 {
+	text-align: left;
+	font-size: 26px;
+	font-weight: 400;
+}
+
+.topCover h1 {
+	font-size: 125px;
+}
+
+.topCover .header {
+	max-width: 550px;
+	margin: auto; 
+}
+
+.icons .middle {
+	border-right: 1px solid #D3D3D3;
+	border-left: 1px solid #D3D3D3;
+}
+
+.brands div[class*="col"] {
+	padding: 0;
+	position: relative;
+	background-color: black;
+}
+
+.brands div[class*="col"] img {
+	transition: all 0.3s;
+}
+
+.brands div[class*="col"]:hover img.main {
+	opacity: 0.2;
+}
+.brands div[class*="col"]:hover .hover {
+	opacity: 1;
+}
+
+.brands div[class*="col"] .hover {
+	display: block;
+	opacity: 0;
+	transition: all .3s;
+	position: absolute;
+	z-index: 99;
+	top: 30%;
+	right: 20px;
+	left: 20px;
+	text-align: center;
+	color: white;
+}
+
+.brands div[class*="col"] .hover img {
+	width: 50px;
+	display: inline;
+}
+
+.brands div[class*="col"] .hover p {
+	color: white;
+}
+
+.contact .center {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}
+
+.contact button {
+	margin-top: 95px;
+	padding: 10px;
+	height: auto;
+}
+
+.addresses {
+	display: block;
+}
+
+.addresses .left, .addresses .right {
+	float: left;
+	width: 50%;
+	height: 0;
+	padding-top: 35%;
+	position: relative;
+}
+
+.addresses .left .background {
+	background: url(images/smallbackground1.jpg);
+}
+
+.addresses .right .background {
+	background: url(images/smallbackground2.jpg);
+}
+
+.addresses .left .background, .addresses .right .background {
+	background-size: cover;
+	background-position: center bottom;
+	width: 100%;
+	padding-top: 70%;
+	position: absolute;
+	top: 0;
+}
+
+.addresses .background .box {
+	position: absolute;
+	top: 30%;
+	right: 20%;
+	left: 20%;
+	background-color: #132023;
+	opacity: 0.8;
+	border-radius: 8px;
+	padding: 25px;
+}
+
+@media screen and (max-width: 1250px) {
+	.addresses .background .box {
+		top: 20%;
+	}
+}
+
+.addresses .background .box h1 {
+	letter-spacing: 4px;
+}
+
+.addresses .background .box p {
+	color: white;
+	font-size: 16px;
+	letter-spacing: 2px;
+	line-height: 170%;
+}
+
+.footer p {
+	text-align: left;
+	letter-spacing: 2.5px;
+}

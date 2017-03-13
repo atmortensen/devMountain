@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<title>Quote Book</title>
+	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body ng-controller="mainController">
+
+<h1 class="title">Just Some Quotes...</h1>
+
+<form>
+	<input id="search" type="text" placeholder="Search" ng-model="search">
+</form>
+
+<form>
+	<textarea rows="1" placeholder="Quote" id="text" ng-model="text"></textarea>
+	<input type="text" placeholder="Author" id="author" ng-model="author">
+	<button ng-click="add(text, author)">New Quote</button>
+</form>
+
+<div class="quote" ng-repeat="quote in quotes | filter : search">
+	<h2>"{{quote.text}}"</h2>
+	<h3>- {{quote.author}}</h3>
+	<button ng-click="remove($index)">Delete Quote</button>
+</div>
+
+
+
+<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript">
+	$('textarea').each(function () {
+	  this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
+	}).on('input', function () {
+	  this.style.height = 'auto';
+	  this.style.height = (this.scrollHeight) + 'px';
+	});
+</script>
+</body>
+</html>
