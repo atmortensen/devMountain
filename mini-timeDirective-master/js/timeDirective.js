@@ -4,8 +4,11 @@ myApp.directive('showTime', function(){
 		restrict: 'E',
 		template: '<div> The current time is {{time}}',
 		replace: true,
-		link: function(scope, element, attributes){
-			scope.time = new Date().toString();
+		scope: {
+			time: '='
 		}
+		// link: function(scope, element, attributes){
+		// 	scope.time = new Date().toString();
+		// }
 	}
 });
