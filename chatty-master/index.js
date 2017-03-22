@@ -12,6 +12,7 @@ app.get('/messages', function(req, res, next){
 });
 
 app.post('/messages', function (req, res, next) {
+	console.log(req.body)
   messages.push({message: req.body.message, time: moment().format('h:mm a') });
   res.status(200).json({ messages: messages });
 });
