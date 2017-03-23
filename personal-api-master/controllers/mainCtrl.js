@@ -2,7 +2,7 @@ var user = require('../user.js');
 var skillz = require('../skillz.js');
 var secrets = require('../secrets.js');
 
-var exports = module.exports = {}
+var exports = module.exports = {};
 
 exports.getName = function(req, res){
 	res.status(200).json({ name: user.name });
