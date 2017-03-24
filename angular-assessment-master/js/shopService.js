@@ -6,6 +6,6 @@ app.service('shopService', ['$http', function($http){
 			method: 'GET',
 			url: 'http://practiceapi.devmounta.in/products'
 		}).catch(e => console.log(e));
-	}
+	};
 
 }]);
