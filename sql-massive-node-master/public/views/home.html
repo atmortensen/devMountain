@@ -1,0 +1,9 @@
+<product ng-repeat="product in products"></product>
+
+<form>
+	<input type="text" ng-model="form.name" placeholder="Name">
+	<input type="text" ng-model="form.description" placeholder="Description">
+	<input type="text" ng-model="form.price" placeholder="Price">
+	<input type="text" ng-model="form.image" placeholder="Image">
+	<button ng-click="newProduct(form)">Add New Product</button>
+</form>

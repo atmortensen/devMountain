@@ -1,0 +1,14 @@
+<div>
+	<h1>{{product.name}}</h1>
+	<img ng-src="{{product.image}}">
+	<p>{{product.description}}</p>
+	<p>${{product.price}}</p>
+	<a href="" ng-click="deleteProduct(product.id)">delete</a>
+	<form ng-model-options="{ updateOn: 'blur' }">
+	<input type="text" ng-model="product.name" placeholder="Name">
+	<input type="text" ng-model="product.description" placeholder="Description">
+	<input type="text" ng-model="product.price" placeholder="Price">
+	<input type="text" ng-model="product.image" placeholder="Image">
+	<button ng-click="updateProduct(product)">Update Product</button>
+</form>
+</div>
