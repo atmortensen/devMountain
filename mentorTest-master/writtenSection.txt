@@ -1,0 +1,57 @@
+Answer each question in a written format
+
+1. What does semantic HTML mean?
+	HTML that uses element tags that describe like <section>.
+
+2. What is the box model?
+	The box model is an element's margin, padding, and border.
+
+3. What is the difference between IDs and Classes?
+	There should only be one element with each ID. There can be multiple elements with the same class name.
+
+4. What does the z-index do?
+	The z-index is used to place elements on top of or under other elements. Position on the z axis.
+
+5. Summarize what the keyword 'this' is used for?
+	'This' is used to refer to context. It is defined wherever the function is called, not where it is created.
+
+6. What is a callback?
+	A function that is taken as a parameter to another function. 
+ 
+7. What is a closure?
+	A closure is when a function is returned inside another function and has access to it's parent's variables even after the parent is called.
+
+8. How does prototype work?
+	If a property or method is not found on the object it will look in prototype.  
+
+9. What is MVC?
+	Model View Controller. It allows for 2 way binding between the controller and the DOM.
+
+10. What is the component lifecycle?
+	A component lifecycle is the proccess of rendering and rerendering a component.
+
+11. What is REST?
+	The industry standand for choosing URLs and the method used to make API calls. 
+
+12. Name three ways of getting data from the URL using express.
+	req.params req.query req.body
+
+create table users (
+id serial,
+name varchar(255),
+email varchar(255)
+)
+
+12. Given the Schema above, write the following four basic CRUD db queries using postgres syntax
+
+-Get all users:
+	SELECT * FROM users
+
+-Create a new user with the name of 'your name' and an email of 'fake@fake.com':
+	INSERT INTO users (name, email) VALUES ('Alex', 'fake@fake.com')
+
+-Update the newly created user's name to 'Bobby Boy':
+	UPDATE users SET name = 'Bobby Boy' WHERE name = 'Alex'
+
+-Delete the newly updated user:
+	DELETE FROM users WHERE name = 'Bobby Boy'
